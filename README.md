@@ -1,1 +1,2 @@
-# TP_AySO_Integral_ANTARTIDA
+Nombre y Apellido: Carolina Gonzalez Parra
+Legajo: 114582

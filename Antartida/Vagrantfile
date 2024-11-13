@@ -45,7 +45,7 @@ Vagrant.configure("2") do |config|
     
     
     config.vm.define "VM2-GRUPO-ANTARTIDA" do |produccion|
-      produccion.vm.box = "generic/fedora28"
+      produccion.vm.box = "generic/fedora38"
       produccion.vm.hostname = "produccion"
       produccion.vm.network "private_network", :name => '', ip: "192.168.56.5"
       

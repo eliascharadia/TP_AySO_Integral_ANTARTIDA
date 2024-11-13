@@ -1,0 +1,13 @@
+#--------------------#
+#
+# Listado de Usuarios separando campos por coma.
+#
+# Nombre_Usuario , Grupo_Primario , Grupo_secundario
+#
+#--------------------#
+usuario_R1,G_R1,Antartida
+usuario_R2,G_R2,Antartida
+usuario_R3,G_R3,Antartida
+usuario_R4,G_R4,Antartida
+usuario_R5,G_R5,Antartida
+usuario_R5,G_R5,Antartida

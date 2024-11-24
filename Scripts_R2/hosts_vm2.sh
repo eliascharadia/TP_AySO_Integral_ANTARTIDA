@@ -24,7 +24,7 @@ else
 	ssh-keygen -t ed25519
 fi
 
-CLAVES_AUTORIZADAS_DEL_OTRO_EQUIPO=$( ssh -o StrictHostKeyChecking=no vagrant@VM2-GRUPO-ANTARTIDA "cat ~/.ssh/authorized_keys" )
+CLAVES_AUTORIZADAS_DEL_OTRO_EQUIPO=$( ssh -o StrictHostKeyChecking=no vagrant@VM1-GRUPO-ANTARTIDA "cat ~/.ssh/authorized_keys" )
 #echo "$CLAVES_AUTORIZADAS_DEL_OTRO_EQUIPO"
 CLAVE_LOCAL=$(cat ~/.ssh/id_ed25519.pub)
 
@@ -33,7 +33,7 @@ CLAVE_LOCAL=$(cat ~/.ssh/id_ed25519.pub)
 VERIFICACION=$( echo "$CLAVES_AUTORIZADAS_DEL_OTRO_EQUIPO" | grep "$CLAVE_LOCAL" )
 
 if [ "$VERIFICACION" == "" ];then
-	sshpass "vagrant" ssh-copy-id -o StrictHostKeyChecking=no vagrant@VM2-GRUPO-ANTARTIDA
+	sshpass -p "vagrant" ssh-copy-id -o StrictHostKeyChecking=no vagrant@VM1-GRUPO-ANTARTIDA
 else
 	echo "La clave ya se cruzó..."
 fi

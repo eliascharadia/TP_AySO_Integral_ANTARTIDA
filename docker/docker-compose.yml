@@ -4,6 +4,6 @@ services:
     web:
         image: eliascharadia/tp-div_313_grupo_antartida
         ports:
-            - "8081:80"
+          - "8081:80"
         volumes:
             - ./web/file:/usr/share/nginx/html/file

@@ -21,21 +21,17 @@ for LINEA in `cat $LISTA |  grep -v ^#`
 do
 	USUARIO=$(echo  $LINEA |awk -F ',' '{print $1}')
 	GRUPO_PRIMARIO=$(echo  $LINEA |awk -F ',' '{print $2}')
-	GRUPO_SECUNDARIO=$(echo  $LINEA |awk -F ',' '{print $3}')
+	DIRECTORIO_HOME=$(echo  $LINEA |awk -F ',' '{print $3}')
 
 	# Creo los grupos primarios pasados por la lista.
-	sudo groupadd $GRUPO_PRIMARIO
-	
-	# Creo el grupo secundario de los usuarios. Como es el mismo para
-	# todos, lo paso por un if asi no me da error en cada vuelta del for.
 
-	if grep -q $GRUPO_SECUNDARIO /etc/group; then
+	if grep -q $GRUPO_PRIMARIO /etc/group; then
 		echo "Este grupo ya fue creado..."
 	else
-		sudo groupadd $GRUPO_SECUNDARIO
+		sudo groupadd $GRUPO_PRIMARIO
 	fi
 
-	sudo useradd -m -s /bin/bash -g $GRUPO_PRIMARIO -G $GRUPO_SECUNDARIO -p $(sudo grep $USUARIO_DE_LA_CLAVE /etc/shadow |awk -F ':' '{print $2}') $USUARIO
+	sudo useradd -m -s /bin/bash -g $GRUPO_PRIMARIO -d $DIRECTORIO_HOME -p $(sudo grep $USUARIO_DE_LA_CLAVE /etc/shadow |awk -F ':' '{print $2}') $USUARIO
 done
 IFS=$ANT_IFS
 

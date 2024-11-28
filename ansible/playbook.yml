@@ -11,8 +11,29 @@
   tasks:
     - include_role:
         name: TP_INI
-    
-    - name: "Otra tarea"
-      debug:
-        msg: "Despues de la ejecucion del rol"
+   
 
+    - include_role:
+        name: alta_usuarios_antartida
+
+    - name: "Crear directorio /tmp/Grupo"
+      debug:
+        msg: "Directorio Creado."
+
+    - name: "Crear archivo datos.txt"
+      debug:
+        msg: "Archivo creado."
+
+
+    - name: "Crear el grupo secundario"
+      debug:
+        msg: "Grupo secundario 'Antartida' creado."
+
+    - name: "Creando grupos principales"
+      debug:
+        msg: "Grupos principales creados."
+
+
+    - name: "Creando usuarios"
+      debug:
+        msg: "Usuarios creados."

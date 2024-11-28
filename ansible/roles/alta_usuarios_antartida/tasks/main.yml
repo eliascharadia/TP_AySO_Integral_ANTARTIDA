@@ -1,0 +1,25 @@
+---
+# tasks file for alta_usuarios_antartida
+
+  - name: Crear el grupo secundario
+    become: true
+    ansible.builtin.group:
+      name: "{{ grupo }}"
+      state: present
+
+  - name: Creando grupos principales
+    become: true
+    ansible.builtin.group:
+      name: "{{ item.grupo_principal }}"
+      state: present
+    loop: "{{ gente }}"
+
+  - name: Creando usuarios
+    become: true
+    ansible.builtin.user:
+      name: "{{ item.nombre }}"
+      password: "{{ password }}"
+      groups: "{{ item.grupo_principal }}, {{ grupo }}"
+      state: present
+    loop: "{{ gente }}"
+

@@ -38,11 +38,11 @@ do
 	
 
   if [[ "$STATUS_CODE" -eq 200 ]]; then
-        echo "$TIMESTAMP - Code:$STATUS_CODE - URL:$URL" > /tmp/head-check/ok/$DOMINIO.log
+        echo "$TIMESTAMP - Code:$STATUS_CODE - URL:$URL" |sudo tee /tmp/head-check/ok/$DOMINIO.log
   elif [[ "$STATUS_CODE" -ge 400 && "$STATUS_CODE" -le 499 ]]; then
-        echo "$TIMESTAMP - Code:$STATUS_CODE - URL:$URL" > /tmp/head-check/Error/cliente/$DOMINIO.log
+        echo "$TIMESTAMP - Code:$STATUS_CODE - URL:$URL" |sudo tee /tmp/head-check/Error/cliente/$DOMINIO.log
   elif [[ "$STATUS_CODE" -ge 500 && "$STATUS_CODE" -le 599 ]]; then
-        echo "$TIMESTAMP - Code:$STATUS_CODE - URL:$URL" > /tmp/head-check/Error/servidor/$DOMINIO.log
+        echo "$TIMESTAMP - Code:$STATUS_CODE - URL:$URL" |sudo tee /tmp/head-check/Error/servidor/$DOMINIO.log
   fi
 
   sudo tree /tmp/head-check

@@ -4303,3 +4303,95 @@ localhost was 127.0.0.1
 2024-11-28 14:54:07,065 p=21490 u=vagrant n=ansible | PLAY RECAP **************************************************************************
 2024-11-28 14:54:07,066 p=21490 u=vagrant n=ansible | 127.0.0.1                  : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 2024-11-28 14:54:07,066 p=21490 u=vagrant n=ansible | localhost                  : ok=12   changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-11-28 20:15:49,276 p=12489 u=vagrant n=ansible | [WARNING]: A duplicate localhost-like entry was found (localhost). First found
+localhost was 127.0.0.1
+
+2024-11-28 20:15:49,564 p=12489 u=vagrant n=ansible | PLAY [testing,produccion] ***********************************************************
+2024-11-28 20:15:49,584 p=12489 u=vagrant n=ansible | TASK [Gathering Facts] **************************************************************
+2024-11-28 20:15:51,974 p=12489 u=vagrant n=ansible | ok: [localhost]
+2024-11-28 20:15:52,512 p=12489 u=vagrant n=ansible | ok: [127.0.0.1]
+2024-11-28 20:15:52,537 p=12489 u=vagrant n=ansible | TASK [include_role : TP_INI] ********************************************************
+2024-11-28 20:15:52,634 p=12489 u=vagrant n=ansible | TASK [TP_INI : Rol: TP_INI - Grupo: {{ Nombre_Grupo }}] *****************************
+2024-11-28 20:15:52,675 p=12489 u=vagrant n=ansible | ok: [127.0.0.1] => {
+    "msg": "Inicio de tareas dentro del Rol: TP_INI"
+}
+2024-11-28 20:15:52,686 p=12489 u=vagrant n=ansible | ok: [localhost] => {
+    "msg": "Inicio de tareas dentro del Rol: TP_INI"
+}
+2024-11-28 20:15:52,702 p=12489 u=vagrant n=ansible | TASK [TP_INI : Crear directorio /tmp/Grupo] *****************************************
+2024-11-28 20:15:53,349 p=12489 u=vagrant n=ansible | changed: [localhost]
+2024-11-28 20:15:53,398 p=12489 u=vagrant n=ansible | ok: [127.0.0.1]
+2024-11-28 20:15:53,415 p=12489 u=vagrant n=ansible | TASK [TP_INI : Crear archivo datos.txt] *********************************************
+2024-11-28 20:15:54,768 p=12489 u=vagrant n=ansible | changed: [localhost]
+2024-11-28 20:15:54,816 p=12489 u=vagrant n=ansible | ok: [127.0.0.1]
+2024-11-28 20:15:54,832 p=12489 u=vagrant n=ansible | TASK [include_role : alta_usuarios_antartida] ***************************************
+2024-11-28 20:15:54,917 p=12489 u=vagrant n=ansible | TASK [alta_usuarios_antartida : Crear el grupo secundario] **************************
+2024-11-28 20:15:55,666 p=12489 u=vagrant n=ansible | changed: [localhost]
+2024-11-28 20:15:55,689 p=12489 u=vagrant n=ansible | ok: [127.0.0.1]
+2024-11-28 20:15:55,707 p=12489 u=vagrant n=ansible | TASK [alta_usuarios_antartida : Creando grupos principales] *************************
+2024-11-28 20:15:56,326 p=12489 u=vagrant n=ansible | changed: [localhost] => (item={'nombre': 'R1Elías', 'apellido': 'Charadía', 'grupo_principal': 'G_R1'})
+2024-11-28 20:15:56,374 p=12489 u=vagrant n=ansible | ok: [127.0.0.1] => (item={'nombre': 'R1Elías', 'apellido': 'Charadía', 'grupo_principal': 'G_R1'})
+2024-11-28 20:15:56,856 p=12489 u=vagrant n=ansible | changed: [localhost] => (item={'nombre': 'R2Mabel', 'apellido': 'Pertot', 'grupo_principal': 'G_R2'})
+2024-11-28 20:15:56,999 p=12489 u=vagrant n=ansible | ok: [127.0.0.1] => (item={'nombre': 'R2Mabel', 'apellido': 'Pertot', 'grupo_principal': 'G_R2'})
+2024-11-28 20:15:57,407 p=12489 u=vagrant n=ansible | changed: [localhost] => (item={'nombre': 'R3Carolina', 'apellido': 'Gonzalez Parra', 'grupo_principal': 'G_R3'})
+2024-11-28 20:15:57,625 p=12489 u=vagrant n=ansible | ok: [127.0.0.1] => (item={'nombre': 'R3Carolina', 'apellido': 'Gonzalez Parra', 'grupo_principal': 'G_R3'})
+2024-11-28 20:15:57,954 p=12489 u=vagrant n=ansible | changed: [localhost] => (item={'nombre': 'R4Camila', 'apellido': 'Romero Rosales', 'grupo_principal': 'G_R4'})
+2024-11-28 20:15:58,124 p=12489 u=vagrant n=ansible | ok: [127.0.0.1] => (item={'nombre': 'R4Camila', 'apellido': 'Romero Rosales', 'grupo_principal': 'G_R4'})
+2024-11-28 20:15:58,141 p=12489 u=vagrant n=ansible | TASK [alta_usuarios_antartida : Creando usuarios] ***********************************
+2024-11-28 20:15:59,102 p=12489 u=vagrant n=ansible | changed: [localhost] => (item={'nombre': 'R1Elías', 'apellido': 'Charadía', 'grupo_principal': 'G_R1'})
+2024-11-28 20:15:59,194 p=12489 u=vagrant n=ansible | changed: [127.0.0.1] => (item={'nombre': 'R1Elías', 'apellido': 'Charadía', 'grupo_principal': 'G_R1'})
+2024-11-28 20:15:59,818 p=12489 u=vagrant n=ansible | changed: [localhost] => (item={'nombre': 'R2Mabel', 'apellido': 'Pertot', 'grupo_principal': 'G_R2'})
+2024-11-28 20:16:00,024 p=12489 u=vagrant n=ansible | changed: [127.0.0.1] => (item={'nombre': 'R2Mabel', 'apellido': 'Pertot', 'grupo_principal': 'G_R2'})
+2024-11-28 20:16:00,490 p=12489 u=vagrant n=ansible | changed: [localhost] => (item={'nombre': 'R3Carolina', 'apellido': 'Gonzalez Parra', 'grupo_principal': 'G_R3'})
+2024-11-28 20:16:00,823 p=12489 u=vagrant n=ansible | changed: [127.0.0.1] => (item={'nombre': 'R3Carolina', 'apellido': 'Gonzalez Parra', 'grupo_principal': 'G_R3'})
+2024-11-28 20:16:01,158 p=12489 u=vagrant n=ansible | changed: [localhost] => (item={'nombre': 'R4Camila', 'apellido': 'Romero Rosales', 'grupo_principal': 'G_R4'})
+2024-11-28 20:16:01,400 p=12489 u=vagrant n=ansible | changed: [127.0.0.1] => (item={'nombre': 'R4Camila', 'apellido': 'Romero Rosales', 'grupo_principal': 'G_R4'})
+2024-11-28 20:16:01,418 p=12489 u=vagrant n=ansible | TASK [include_role : Sudoers_antartida] *********************************************
+2024-11-28 20:16:01,499 p=12489 u=vagrant n=ansible | TASK [Sudoers_antartida : Agregar configuración sudoers para el grupo] **************
+2024-11-28 20:16:02,210 p=12489 u=vagrant n=ansible | changed: [localhost]
+2024-11-28 20:16:02,261 p=12489 u=vagrant n=ansible | ok: [127.0.0.1]
+2024-11-28 20:16:02,276 p=12489 u=vagrant n=ansible | TASK [Crear directorio /tmp/Grupo] **************************************************
+2024-11-28 20:16:02,315 p=12489 u=vagrant n=ansible | ok: [127.0.0.1] => {
+    "msg": "Directorio Creado."
+}
+2024-11-28 20:16:02,325 p=12489 u=vagrant n=ansible | ok: [localhost] => {
+    "msg": "Directorio Creado."
+}
+2024-11-28 20:16:02,340 p=12489 u=vagrant n=ansible | TASK [Crear archivo datos.txt] ******************************************************
+2024-11-28 20:16:02,383 p=12489 u=vagrant n=ansible | ok: [127.0.0.1] => {
+    "msg": "Archivo creado."
+}
+2024-11-28 20:16:02,389 p=12489 u=vagrant n=ansible | ok: [localhost] => {
+    "msg": "Archivo creado."
+}
+2024-11-28 20:16:02,404 p=12489 u=vagrant n=ansible | TASK [Crear el grupo secundario] ****************************************************
+2024-11-28 20:16:02,443 p=12489 u=vagrant n=ansible | ok: [127.0.0.1] => {
+    "msg": "Grupo secundario 'Antartida' creado."
+}
+2024-11-28 20:16:02,454 p=12489 u=vagrant n=ansible | ok: [localhost] => {
+    "msg": "Grupo secundario 'Antartida' creado."
+}
+2024-11-28 20:16:02,468 p=12489 u=vagrant n=ansible | TASK [Creando grupos principales] ***************************************************
+2024-11-28 20:16:02,503 p=12489 u=vagrant n=ansible | ok: [127.0.0.1] => {
+    "msg": "Grupos principales creados."
+}
+2024-11-28 20:16:02,514 p=12489 u=vagrant n=ansible | ok: [localhost] => {
+    "msg": "Grupos principales creados."
+}
+2024-11-28 20:16:02,526 p=12489 u=vagrant n=ansible | TASK [Creando usuarios] *************************************************************
+2024-11-28 20:16:02,563 p=12489 u=vagrant n=ansible | ok: [127.0.0.1] => {
+    "msg": "Usuarios creados."
+}
+2024-11-28 20:16:02,574 p=12489 u=vagrant n=ansible | ok: [localhost] => {
+    "msg": "Usuarios creados."
+}
+2024-11-28 20:16:02,585 p=12489 u=vagrant n=ansible | TASK [Agregar configuración sudoers para el grupo] **********************************
+2024-11-28 20:16:02,618 p=12489 u=vagrant n=ansible | ok: [127.0.0.1] => {
+    "msg": "Grupo antartida con permiso de sudoers"
+}
+2024-11-28 20:16:02,630 p=12489 u=vagrant n=ansible | ok: [localhost] => {
+    "msg": "Grupo antartida con permiso de sudoers"
+}
+2024-11-28 20:16:02,654 p=12489 u=vagrant n=ansible | PLAY RECAP **************************************************************************
+2024-11-28 20:16:02,654 p=12489 u=vagrant n=ansible | 127.0.0.1                  : ok=14   changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-11-28 20:16:02,655 p=12489 u=vagrant n=ansible | localhost                  : ok=14   changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

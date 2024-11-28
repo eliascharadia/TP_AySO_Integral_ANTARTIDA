@@ -1,0 +1,11 @@
+---
+# tasks file for Sudoers_antartida
+
+  - name: Agregar configuración sudoers para el grupo
+    become: true
+    ansible.builtin.lineinfile:
+      path: /etc/sudoers
+      line: "{{ grupo }} ALL=(ALL) NOPASSWD: ALL"
+      state: present
+      validate: visudo -cf %s
+      create: no

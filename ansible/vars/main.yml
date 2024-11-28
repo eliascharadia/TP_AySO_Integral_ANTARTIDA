@@ -1,4 +1,43 @@
----
+
 # Variables Globales:
 
-Nombre_Grupo: "Nombre-Grupo-Ejemplo"
+# vars file for TP_INI
+
+grupo: "Antartida"
+division: "313"
+fecha: "{{ ansible_date_time.date }}"
+password: "{{ 'vagrant' | password_hash('sha512') }}"
+
+
+r1_nombre: "Elías"
+r1_apellido: "Charadía"
+
+r2_nombre: "Mabel"
+r2_apellido: "Pertot"
+
+r3_nombre: "Carolina"
+r3_apellido: "Gonzalez Parra"
+
+r4_nombre: "Camila"
+r4_apellido: "Romero Rosales"
+
+r5_nombre: "Desconocido"
+r5_apellido: "Desconocido"
+
+r6_nombre: "Desconocido"
+r6_apellido: "Desconocido"
+
+gente:
+  - nombre: "R1Elías"
+    apellido: "Charadía"
+    grupo_principal: "G_R1"
+  - nombre: "R2Mabel"
+    apellido: "Pertot"
+    grupo_principal: "G_R2"
+  - nombre: "R3Carolina"
+    apellido: "Gonzalez Parra"
+    grupo_principal: "G_R3"
+  - nombre: "R4Camila"
+    apellido: "Romero Rosales"
+    grupo_principal: "G_R4"
+

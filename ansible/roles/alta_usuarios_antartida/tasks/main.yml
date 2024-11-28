@@ -19,7 +19,8 @@
     ansible.builtin.user:
       name: "{{ item.nombre }}"
       password: "{{ password }}"
-      groups: "{{ item.grupo_principal }}, {{ grupo }}"
+      groups: "{{ grupo }}"
+      group: "{{ item.grupo_principal }}"
       state: present
     loop: "{{ gente }}"
 

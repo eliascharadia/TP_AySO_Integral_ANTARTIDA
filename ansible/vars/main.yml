@@ -41,3 +41,11 @@ gente:
     apellido: "Romero Rosales"
     grupo_principal: "G_R4"
 
+
+#Lista de programas a instalar
+
+programas_a_instalar:
+  - htop
+  - tmux
+  - speedtest-cli
+

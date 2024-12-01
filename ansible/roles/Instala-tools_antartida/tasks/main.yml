@@ -1,0 +1,9 @@
+---
+# tasks file for Instala-tools_antartida
+
+- name: Instalar programas
+  become: true
+  ansible.builtin.package:
+    name: "{{ programas_a_instalar }}"
+    state: present
+

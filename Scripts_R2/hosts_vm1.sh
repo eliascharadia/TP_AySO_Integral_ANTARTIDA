@@ -24,7 +24,7 @@ else
 	ssh-keygen -t ed25519
 fi
 
-CLAVES_AUTORIZADAS_DEL_OTRO_EQUIPO=$( ssh -o StrictHostKeyChecking=no vagrant@VM2-GRUPO-ANTARTIDA "cat ~/.ssh/authorized_keys" )
+CLAVES_AUTORIZADAS_DEL_OTRO_EQUIPO=$( sshpass -p "vagrant" ssh -o StrictHostKeyChecking=no vagrant@VM2-GRUPO-ANTARTIDA "cat ~/.ssh/authorized_keys" )
 #echo "$CLAVES_AUTORIZADAS_DEL_OTRO_EQUIPO"
 CLAVE_LOCAL=$(cat ~/.ssh/id_ed25519.pub)
 

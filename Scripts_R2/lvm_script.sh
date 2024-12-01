@@ -16,7 +16,7 @@ w
 LVM
 
 #Creando vg y lv no swap
-wipefs -a /dev/sdc1
+sudo wipefs -a /dev/sdc1
 sudo pvcreate /dev/sdc1
 
 
@@ -25,8 +25,8 @@ sudo vgcreate vg_datos /dev/sdc1
 sudo lvcreate -L +10M vg_datos -n lv_docker
 sudo lvcreate -L +2.5GB vg_datos -n lv_workareas
 
-mkfs.ext4 /dev/vg_datos/lv_docker
-mkfs.ext4 /dev/vg_datos/lv_workareas
+sudo mkfs.ext4 /dev/vg_datos/lv_docker
+sudo mkfs.ext4 /dev/vg_datos/lv_workareas
 
 sudo mount /dev/vg_datos/lv_docker /var/lib/docker/
 
@@ -78,3 +78,7 @@ memoria_swap
 sudo mkswap /dev/sde1
 sudo swapon /dev/sde1
 swapon --show
+
+
+sudo systemctl restart docker
+sudo systemctl status docker

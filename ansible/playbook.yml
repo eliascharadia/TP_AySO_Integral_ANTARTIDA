@@ -14,7 +14,13 @@
    
 
     - include_role:
-        name: alta_usuarios_antartida
+        name: Alta_usuarios_antartida
+
+    - include_role:
+        name: Sudoers_antartida
+
+    - include_role:
+        name: Instala-tools_antartida
 
     - name: "Crear directorio /tmp/Grupo"
       debug:
@@ -37,3 +43,12 @@
     - name: "Creando usuarios"
       debug:
         msg: "Usuarios creados."
+
+    - name: "Agregar configuración sudoers para el grupo"
+      debug:
+        msg: "Grupo antartida con permiso de sudoers"
+
+    - name: "Instalar programas"
+      debug:
+        msg: "Programas instalados"
+

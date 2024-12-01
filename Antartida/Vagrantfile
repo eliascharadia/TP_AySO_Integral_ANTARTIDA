@@ -33,7 +33,7 @@ Vagrant.configure("2") do |config|
       testing.vm.provision "shell", path: "instala_paquetes.sh"
       testing.vm.provision "shell", privileged: false, inline: <<-SHELL
       # Los comandos aca se ejecutan como vagrant
-  
+      
       mkdir -p /home/vagrant/repogit
       cd /home/vagrant/repogit
       git clone https://github.com/upszot/UTN-FRA_SO_onBording.git 
@@ -54,6 +54,12 @@ Vagrant.configure("2") do |config|
   
     # Agrega la key Privada de ssh en .vagrant/machines/default/virtualbox/private_key
     produccion.ssh.insert_key = true
+    # Agrego los discos
+    produccion.vm.disk :disk, size: "5GB", name: "#{produccion.vm.hostname}_extra_storage"
+    produccion.vm.disk :disk, size: "3GB", name: "#{produccion.vm.hostname}_extra_storage2"
+    produccion.vm.disk :disk, size: "2GB", name: "#{produccion.vm.hostname}_extra_storage3"
+    produccion.vm.disk :disk, size: "1GB", name: "#{produccion.vm.hostname}_extra_storage4"
+
     produccion.vm.provider "virtualbox" do |vb2|
       vb2.memory = "1024"
       vb2.name = "produccion"
@@ -66,10 +72,12 @@ Vagrant.configure("2") do |config|
     
     # Puedo Ejecutar un script que esta en un archivo
     produccion.vm.provision "shell", path: "script_Enable_ssh_password.sh"
-    
+
     # Provisión para instalar
     produccion.vm.provision "shell", inline: <<-SHELL
       dnf install -y /home/vagrant/compartido/tree-1.8.0-10.el9.x86_64.rpm
+      sudo dnf copr enable fabianorodrigues/sshpass
+      sudo dnf install -y sshpass 
 
       subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
       dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm

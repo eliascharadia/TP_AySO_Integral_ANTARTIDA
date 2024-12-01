@@ -2,9 +2,9 @@
 
 echo "Haciendo partición de tipo LVM del disco de 5GB"
 
-DISCO=$(sudo fdisk -l | grep "5 GiB" | awk '{print $2}' | awk -F ':' '{print $1}')
+#DISCO=$(sudo fdisk -l | grep "5 GiB" | awk '{print $2}' | awk -F ':' '{print $1}')
 
-sudo fdisk $DISCO << LVM
+sudo fdisk /dev/sdc << LVM
 n
 p
 
@@ -35,9 +35,9 @@ sudo mount /dev/vg_datos/lv_workareas /work/
 
 
 #Creando vg y lv swap
-DISCO_2=$(sudo fdisk -l | grep "3 GiB" | awk '{print $2}' | awk -F ':' '{print $1}')
+#DISCO_2=$(sudo fdisk -l | grep "3 GiB" | awk '{print $2}' | awk -F ':' '{print $1}')
 
-sudo fdisk $DISCO_2 << LVM
+sudo fdisk /dev/sdd << LVM
 n
 p
 
@@ -62,9 +62,9 @@ swapon --show
 #Creando particion swap de 1GB
 
 
-DISCO_3=$(sudo fdisk -l | grep "2 GiB" | awk '{print $2}' | awk -F ':' '{print $1}')
+#DISCO_3=$(sudo fdisk -l | grep "2 GiB" | awk '{print $2}' | awk -F ':' '{print $1}')
 
-sudo fdisk $DISCO_3 << memoria_swap
+sudo fdisk /dev/sde << memoria_swap
 n
 p
 

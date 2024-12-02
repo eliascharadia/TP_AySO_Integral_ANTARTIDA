@@ -28,8 +28,8 @@ r6_nombre: "Desconocido"
 r6_apellido: "Desconocido"
 
 gente:
-  - nombre: "R1Elías"
-    apellido: "Charadía"
+  - nombre: "R1Elias"
+    apellido: "Charadia"
     grupo_principal: "G_R1"
   - nombre: "R2Mabel"
     apellido: "Pertot"

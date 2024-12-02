@@ -3,7 +3,7 @@ testing
 produccion
 
 [testing]
-127.0.0.1 
+VM2-GRUPO-ANTARTIDA 
 
 [produccion]
 localhost ansible_connection=local 

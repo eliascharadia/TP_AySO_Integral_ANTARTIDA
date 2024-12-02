@@ -2,9 +2,8 @@
 
 echo "Haciendo partición de tipo LVM del disco de 5GB"
 
-#DISCO=$(sudo fdisk -l | grep "5 GiB" | awk '{print $2}' | awk -F ':' '{print $1}')
 
-sudo fdisk /dev/sdc << LVM
+sudo fdisk /dev/sdb << LVM
 n
 p
 
@@ -16,11 +15,11 @@ w
 LVM
 
 #Creando vg y lv no swap
-sudo wipefs -a /dev/sdc1
-sudo pvcreate /dev/sdc1
+sudo wipefs -a /dev/sdb1
+sudo pvcreate /dev/sdb1
 
 
-sudo vgcreate vg_datos /dev/sdc1
+sudo vgcreate vg_datos /dev/sdb1
 
 sudo lvcreate -L +10M vg_datos -n lv_docker
 sudo lvcreate -L +2.5GB vg_datos -n lv_workareas
@@ -35,22 +34,21 @@ sudo mount /dev/vg_datos/lv_workareas /work/
 
 
 #Creando vg y lv swap
-#DISCO_2=$(sudo fdisk -l | grep "3 GiB" | awk '{print $2}' | awk -F ':' '{print $1}')
 
-sudo fdisk /dev/sdd << LVM
+sudo fdisk /dev/sdc << LVM
 n
 p
 
 
 
 t
-82
+8e
 w
 LVM
 
 
-sudo pvcreate /dev/sdd1
-sudo vgcreate vg_temp /dev/sdd1
+sudo pvcreate /dev/sdc1
+sudo vgcreate vg_temp /dev/sdc1
 sudo lvcreate -L 2.5GB vg_temp -n lv_swap
 
 #Montando memoria swap
@@ -62,9 +60,8 @@ swapon --show
 #Creando particion swap de 1GB
 
 
-#DISCO_3=$(sudo fdisk -l | grep "2 GiB" | awk '{print $2}' | awk -F ':' '{print $1}')
 
-sudo fdisk /dev/sde << memoria_swap
+sudo fdisk /dev/sdd << memoria_swap
 n
 p
 
@@ -75,8 +72,8 @@ t
 w
 memoria_swap
 
-sudo mkswap /dev/sde1
-sudo swapon /dev/sde1
+sudo mkswap /dev/sdd1
+sudo swapon /dev/sdd1
 swapon --show
 
 

@@ -78,7 +78,6 @@ Vagrant.configure("2") do |config|
       dnf install -y /home/vagrant/compartido/tree-1.8.0-10.el9.x86_64.rpm
       sudo dnf copr enable fabianorodrigues/sshpass
       sudo dnf install -y sshpass 
-      sudo dnf install -y docker-compose
 
       subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
       dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
